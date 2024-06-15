@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`converts the colour palette 1`] = `
+"////
+/// @group settings/colours
+////
+
+/// Colour palette
+///
+/// @type Map
+///
+/// @prop $colour - Representation for the given $colour, where $colour is the
+///   friendly name for the colour (e.g. "red": #ff0000);
+///
+/// @access public
+
+$nhsuk-colours: (
+  "red": #d5281b,
+  "yellow": #ffeb3b,
+  "green": #007f3b,
+  "blue": #005eb8,
+  "purple": #330072,
+  "black": #212b32,
+  "dark-pink": #7c2855
+) !default;
+"
+`;
