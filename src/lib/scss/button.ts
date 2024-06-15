@@ -7,7 +7,9 @@ const plugin: PluginCreator<Options> = (options = {}) => {
     postcssPlugin: 'postcss-govuk-button-to-nhsuk-button',
     AtRule(atRule, helper) {
       // Only continue if the source file is the button
-      if (!atRule.source?.input?.file?.endsWith('components/button/_index.scss')) {
+      if (
+        !atRule.source?.input?.file?.endsWith('components/button/_index.scss')
+      ) {
         return
       }
 
@@ -100,7 +102,7 @@ const plugin: PluginCreator<Options> = (options = {}) => {
                   ],
                 }),
               )
-            } 
+            }
             // update the font mixin
             else if (
               ruleAtRule.name === 'include' &&

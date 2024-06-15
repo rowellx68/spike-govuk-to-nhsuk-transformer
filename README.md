@@ -6,5 +6,18 @@ It is using `postcss` to convert the SCSS files into its Abstract Syntax Tree (A
 
 ## Assumptions
 
-- we have copied the `govuk-frontend` files into the `nhsuk-frontend` folder
-- we have copied replaced all instances of `govuk` with `nhsuk` in the files and paths
+- we are copying the GOVUK frontend and replacing all occurrences of `govuk` with `nhsuk`
+
+## How to run
+
+```bash
+pnpm install
+
+pnpm build
+```
+
+The script should output the processed files in the `nhsuk-frontend` directory. You should be able to restore the dependencies of the `nhsuk-frontend` and run the project.
+
+Here's a preview of what the button will look like:
+
+![Button](./assets/button.png)

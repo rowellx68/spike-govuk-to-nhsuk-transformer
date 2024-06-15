@@ -19,9 +19,22 @@ $nhsuk-colours: (
   "yellow": #ffeb3b,
   "green": #007f3b,
   "blue": #005eb8,
+  "dark-blue": #003078,
+  "light-blue": #5694ca,
   "purple": #330072,
   "black": #212b32,
-  "dark-pink": #7c2855
+  "dark-grey": #505a5f,
+  "mid-grey": #b1b4b6,
+  "light-grey": #f3f2f1,
+  "white": #ffffff,
+  "light-purple": #6f72af,
+  "bright-purple": #912b88,
+  "pink": #d53880,
+  "light-pink": #f499be,
+  "orange": #f47738,
+  "brown": #b58840,
+  "light-green": #85994b,
+  "turquoise": #28a197
 ) !default;
 "
 `;
