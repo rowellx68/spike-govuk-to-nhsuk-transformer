@@ -54,7 +54,7 @@ $nhsuk-inverse-button-text-colour: $nhsuk-brand-colour !default;
   // Because the shadow (s0) is visually 'part of' the button, we need to reduce
   // the height of the button to compensate by adjusting its padding (s1) and
   // increase the bottom margin to include it (s2).
-  $button-shadow-size: $nhsuk-border-width-form-element;
+  $button-shadow-size: 4px !default;
 
   .nhsuk-button {
     @include nhsuk-font($size: 19);
@@ -92,7 +92,6 @@ $nhsuk-inverse-button-text-colour: $nhsuk-brand-colour !default;
     &:active,
     &:hover {
       color: $nhsuk-button-text-colour;
-      font-weight: 600;
       text-decoration: none;
     }
 
@@ -122,7 +121,7 @@ $nhsuk-inverse-button-text-colour: $nhsuk-brand-colour !default;
       color: $nhsuk-focus-text-colour;
       font-weight: 600;
       background-color: $nhsuk-focus-colour;
-      box-shadow: 0 2px 0 $nhsuk-focus-text-colour;
+      box-shadow: 0 $button-shadow-size 0 $nhsuk-focus-text-colour;
     }
 
     // The following adjustments do not work for <input type="button"> as

@@ -27,6 +27,8 @@ const plugin: PluginCreator<Options> = (options = {}) => {
       atRule.walkDecls((decl) => {
         if (decl.prop.match(/\$nhsuk-warning-button-.*/)) {
           decl.remove()
+        } else if (decl.prop === '$button-shadow-size') {
+          decl.value = '4px !default'
         }
       })
 
@@ -114,6 +116,32 @@ const plugin: PluginCreator<Options> = (options = {}) => {
                   params: 'nhsuk-font($size: 19)',
                 }),
               )
+            }
+          })
+
+          rule.walkRules((ruleRule) => {
+            // update the focus styles
+            if (ruleRule.selector === '&:focus:not(:active):not(:hover)') {
+              ruleRule.walkDecls((decl) => {
+                if (decl.prop === 'box-shadow') {
+                  decl.value =
+                    '0 $button-shadow-size 0 $nhsuk-focus-text-colour'
+                }
+              })
+            }
+            // cleanup the link, visited, active, and hover styles
+            else if (
+              ruleRule.selector ===
+              `&:link,
+    &:visited,
+    &:active,
+    &:hover`
+            ) {
+              ruleRule.walkDecls((decl) => {
+                if (decl.prop === 'font-weight') {
+                  decl.remove()
+                }
+              })
             }
           })
         }

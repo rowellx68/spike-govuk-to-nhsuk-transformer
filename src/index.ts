@@ -1,11 +1,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import fg from 'fast-glob'
-import postcss from 'postcss'
-import postcssScss from 'postcss-scss'
 
-import button from './lib/scss/button'
-import colourPalette from './lib/scss/colour-palette'
+import processScss from './lib/scss'
 
 const files = fg.globSync(['govuk-frontend/**/*', '!**/dist/**'])
 
@@ -24,14 +21,7 @@ files.forEach((file) => {
   if (path.extname(file) === '.scss') {
     const input = content.replace(/govuk/g, 'nhsuk').replace(/GOVUK/g, 'NHSUK')
 
-    postcss([button, colourPalette])
-      .process(input, {
-        from: destination,
-        syntax: postcssScss,
-      })
-      .then((result) => {
-        fs.writeFileSync(destination, result.css)
-      })
+    processScss(input, destination)
   } else {
     let newContent = content
       .replace(/govuk/g, 'nhsuk')
